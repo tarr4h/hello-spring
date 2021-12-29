@@ -46,8 +46,7 @@ public class MemoController {
 		
 		int result = memoService.deleteMemo(memoNo);
 		log.info("delMemoResult = {}", result);
-		
-		
+
 		return "redirect:/memo/memo.do";
 	}
 }
