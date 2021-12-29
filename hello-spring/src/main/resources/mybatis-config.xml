@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+    <!-- JavaType -> jdbcType : null값을 null로 처리 -->
+  	<setting name="jdbcTypeForNull" value="NULL"/> 
+  	<!-- db: column_name -> java: columnName -->
+  	<setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
+  
+  <typeAliases>
+  	<package name="com.kh.spring"/>
+  </typeAliases>
+  
+  <typeHandlers>
+  	<!-- <typeHandler handler="com.kh.spring.common.typehandler.StringArrayToVarcharTypeHandler"></typeHandler> -->
+  	<package name="com.kh.spring.common.typehandler"></package>
+  </typeHandlers>
+  
+</configuration>
