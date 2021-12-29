@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.kh.spring.member.model.dao.MemberDao;
 import com.kh.spring.member.vo.Member;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 

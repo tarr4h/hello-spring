@@ -34,7 +34,7 @@ div#memo-container{width:60%; margin:0 auto;text-align:center;}
 	    		<td>
 	    			<form action="${pageContext.request.contextPath }/memo/deleteMemo.do" method="POST">
 						<input type="hidden" name="memoNo" value="${memo.no }" />	    			
-	    				<input type="submit" value="삭제하기" />
+	    				<button class="btn btn-outline-danger">삭제하기</button>
 	    			</form>
     			</td>
 	    	</tr>
