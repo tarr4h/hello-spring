@@ -1,4 +1,4 @@
-package com.kh.spring.board.controller;
+package com.kh.spring.board.model.vo;
 
 import java.io.Serializable;
 import java.util.Date;
