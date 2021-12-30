@@ -29,4 +29,13 @@
 		where
 			no = #{memoNo}
 	</delete>
+	
+	<select id="selectOneMemo" resultType="memo">
+		select
+			*
+		from
+			memo
+		where
+			no = #{no}
+	</select>
 </mapper>

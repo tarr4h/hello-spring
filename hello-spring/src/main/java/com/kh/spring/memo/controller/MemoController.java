@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +38,6 @@ public class MemoController {
 	public String insertMemo(Memo memo, RedirectAttributes redirectAttr) {
 		
 		try {
-			StopWatch stopWatch = new StopWatch();
-			stopWatch.start("insertMemo");
 			log.debug("memo = {}", memo);
 			
 			int result = memoService.insertMemo(memo);
@@ -49,8 +46,6 @@ public class MemoController {
 			log.debug("msg = {}", msg);
 			
 			redirectAttr.addFlashAttribute("msg", msg);
-			stopWatch.stop();
-			log.debug("stopWatch = {} ", stopWatch.shortSummary());
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw e;
@@ -60,11 +55,14 @@ public class MemoController {
 	}
 
 	@PostMapping("/deleteMemo.do")
-	public String deleteMemo(@RequestParam("memoNo") String memoNo) {
-		log.debug("delMemoNo = {}", memoNo);
+	public String deleteMemo(@RequestParam("no") int no, @RequestParam("password") String password, RedirectAttributes redirectAttr) {
+		log.debug("delMemoNo = {}", no);
 		
-		int result = memoService.deleteMemo(memoNo);
+		int result = memoService.deleteMemo(no);
 		log.debug("delMemoResult = {}", result);
+		
+		String msg = result > 0 ? "메모 삭제 되었습니다." : "메모 삭제 실패";
+		redirectAttr.addFlashAttribute("msg", msg);
 
 		return "redirect:/memo/memo.do";
 	}

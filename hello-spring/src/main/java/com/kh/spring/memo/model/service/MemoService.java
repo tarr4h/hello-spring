@@ -10,6 +10,8 @@ public interface MemoService {
 
 	List<Memo> getMemo();
 
-	int deleteMemo(String memoNo);
+	int deleteMemo(int memoNo);
+
+	Memo selectOneMemo(int no);
 
 }
